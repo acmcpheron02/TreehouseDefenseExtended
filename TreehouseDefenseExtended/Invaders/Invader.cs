@@ -1,6 +1,6 @@
 namespace TreehouseDefense
 {
-    abstract class Invader
+    abstract class Invader : IInvader
     {
         private readonly Path _path;
         private int _pathStep = 0;
@@ -11,8 +11,8 @@ namespace TreehouseDefense
         
         // True if the invader has reached the end of the path
         public bool HasScored { get { return _pathStep >= _path.Length; } }
-        
-        public virtual int Health { get; protected set; } = 2;
+
+        public abstract int Health { get; protected set; }
         
         public bool IsNeutralized => Health <= 0;
         
